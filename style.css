@@ -20,7 +20,7 @@
 }
 
 .ship-container {
-    background: rgb(206, 206, 93);
+    background: rgb(104, 104, 75);
     border-radius: 5px;
     margin-top: 50px;
     padding: 15px;
@@ -33,7 +33,7 @@
 .carrier {
     width: 40px;
     height: 200px;
-    background-color: rgb(235, 61, 61);
+    background-color: rgb(126, 64, 64);
 }
 
 .carrier-horizontal {
@@ -45,7 +45,7 @@
 .battleship {
     width: 40px;
     height: 160px;
-    background-color: rgb(235, 145, 61);
+    background-color: rgb(145, 101, 61);
 }
 
 .battleship-horizontal {
@@ -57,19 +57,19 @@
 .cruiser {
     width: 40px;
     height: 120px;
-    background-color: rgb(154, 235, 61);+
+    background-color: rgb(103, 133, 70);
 }
 
 .cruiser-horizontal {
     width: 120px;
     height: 40px;
-    background-color: rgb(154, 235, 61);+
+    background-color: rgb(154, 235, 61);
 }
 
 .submarine {
     width: 40px;
     height: 120px;
-    background-color: rgb(61, 128, 235);
+    background-color: rgb(57, 87, 134);
 }
 
 .submarine-horizontal {
@@ -81,7 +81,7 @@
 .destroyer {
     width: 40px;
     height: 80px;
-    background-color: rgb(209, 61, 235);
+    background-color: rgb(125, 75, 134);
 }
 
 .destroyer-horizontal {
