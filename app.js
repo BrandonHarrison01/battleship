@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const destroyer = document.querySelector('.destroyer')
     const rotateButton = document.getElementById('rotate-btn')
     let isVertical = true
+
+    const ships = ['cell', 'carrier', 'battleship', 'cruiser', 'submarine', 'destroyer', 'hit', 'miss']
     
     let board = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         board.forEach((row, y) => {
             row.forEach((col, x) => {
                 const cell = document.createElement('div')
-                cell.className = "cell"
+                cell.className = ships[col]
                 gameBoardContainer.appendChild(cell)
             });
         });
@@ -38,13 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const rotate = () => {
-        if(isVertical){
-            carrier.classList.toggle('carrier-horizontal')
-            battleship.classList.toggle('battleship-horizontal')
-            cruiser.classList.toggle('cruiser-horizontal')
-            submarine.classList.toggle('submarine-horizontal')
-            destroyer.classList.toggle('destroyer-horizontal')
-        }
+        carrier.classList.toggle('carrier-horizontal')
+        battleship.classList.toggle('battleship-horizontal')
+        cruiser.classList.toggle('cruiser-horizontal')
+        submarine.classList.toggle('submarine-horizontal')
+        destroyer.classList.toggle('destroyer-horizontal')
+        isVertical ? isVertical = false : isVertical = true
+        return
     }
 
     

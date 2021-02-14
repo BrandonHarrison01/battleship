@@ -31,61 +31,100 @@
 }
 
 .carrier {
-    width: 40px;
-    height: 200px;
     background-color: rgb(126, 64, 64);
 }
 
-.carrier-horizontal {
-    width: 200px;
-    height: 40px;
-    background-color: rgb(235, 61, 61);
-}
-
 .battleship {
-    width: 40px;
-    height: 160px;
     background-color: rgb(145, 101, 61);
 }
 
-.battleship-horizontal {
-    width: 160px;
-    height: 40px;
-    background-color: rgb(235, 145, 61);
-}
-
 .cruiser {
-    width: 40px;
-    height: 120px;
     background-color: rgb(103, 133, 70);
 }
 
-.cruiser-horizontal {
-    width: 120px;
-    height: 40px;
-    background-color: rgb(154, 235, 61);
-}
-
 .submarine {
-    width: 40px;
-    height: 120px;
     background-color: rgb(57, 87, 134);
 }
 
-.submarine-horizontal {
-    width: 120px;
-    height: 40px;
-    background-color: rgb(61, 128, 235);
-}
-
 .destroyer {
-    width: 40px;
-    height: 80px;
     background-color: rgb(125, 75, 134);
 }
 
-.destroyer-horizontal {
+.hit {
+    background-color: red;
+}
+
+.miss {
+    background-color: black;
+}
+
+.ship-container .carrier {
+    width: 40px;
+    height: 200px;
+}
+
+.ship-container .carrier-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(126, 64, 64);
+}
+
+.ship-container .battleship {
+    width: 40px;
+    height: 160px;
+}
+
+.ship-container .battleship-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 160px;
+    height: 40px;
+    background-color: rgb(145, 101, 61);
+}
+
+.ship-container .cruiser {
+    width: 40px;
+    height: 120px;
+}
+
+.ship-container .cruiser-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(103, 133, 70);
+}
+
+.ship-container .submarine {
+    width: 40px;
+    height: 120px;
+}
+
+.ship-container .submarine-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(57, 87, 134);
+}
+
+.ship-container .destroyer {
+    width: 40px;
+    height: 80px;
+}
+
+.ship-container .destroyer-horizontal {
+    display: flex;
+    flex-direction: row;
     width: 80px;
     height: 40px;
-    background-color: rgb(209, 61, 235);
+    background-color: rgb(125, 75, 134);
+}
+
+.ship {
+    height: 40px;
+    width: 40px;
+    border: 1px solid greenyellow;
 }
