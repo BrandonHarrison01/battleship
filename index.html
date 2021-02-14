@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>title</title>
+		<link rel="stylesheet" href="style.css">
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+		<script src="./config.js"></script>
+		<script src="./logic.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<h1>BattleShip</h1>
+
+
+		<!-- <div>
+			<h2>Register</h2>
+			<input type="text" id="registerEmail" placeholder="email" />
+			<input
+				type="password"
+				id="registerPassword"
+				placeholder="password"
+			/>
+			<input
+				type="password"
+				id="confirmPassword"
+				placeholder="confirm password"
+			/>
+			<button onclick="register()">submit</button>
+		</div> -->
+		
+		
+		
+		<div class="game-board"></div>
+
+
+		<div class="ship-container">
+			<div id="carrier" draggable="true"></div>
+			<div id="battleship" draggable="true"></div>
+			<div id="cruiser" draggable="true"></div>
+			<div id="submarine" draggable="true"></div>
+			<div id="destroyer" draggable="true"></div>
+		</div>
+
+
+		<!-- <div draggable=true /> to move ships onto board -->
+
+
+	</body>
+</html>
