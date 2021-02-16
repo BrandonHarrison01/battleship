@@ -123,7 +123,7 @@
     background-color: rgb(125, 75, 134);
 }
 
-.ship {
+.ship-cell {
     height: 40px;
     width: 40px;
     border: 1px solid greenyellow;
