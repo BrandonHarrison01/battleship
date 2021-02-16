@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoardContainer = document.querySelector('.game-board')
     const shipCells = document.querySelectorAll('.ship-cell')
-    const ships = document.querySelectorAll('.ship')
+    const ships = document.querySelectorAll('.ship') 
     const carrier = document.querySelector('.carrier')
     const battleship = document.querySelector('.battleship')
     const cruiser = document.querySelector('.cruiser')
@@ -29,16 +29,34 @@ document.addEventListener('DOMContentLoaded', () => {
         console.table(board);
         renderBoard()
     };
+
+    const dragOver = (e) => {
+        e.preventDefault()
+    }
+
+    const drop = (e) => {
+        e.preventDefault()
+
+        const droppedCoordinates = e.target.id
+        console.log(droppedCoordinates, 'dropped')
+
+        renderBoard()
+    }
     
     const renderBoard = () => {
         board.forEach((row, y) => {
             row.forEach((col, x) => {
                 const cell = document.createElement('div')
-                cell.className = ships[col]
+                cell.addEventListener("dragover", dragOver)
+                cell.addEventListener("drop", drop)
+                cell.className = shipsArray[col]
+                cell.id = `${y}, ${x}`
                 gameBoardContainer.appendChild(cell)
             });
         });
     };
+
+    const allCells = document.querySelectorAll('.cell')
 
     const rotate = () => {
         carrier.classList.toggle('carrier-horizontal')
@@ -54,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBoard()
 
     let selectedShip
+    let selectedCell
+    let shipLength
 
     rotateButton.addEventListener("click", rotate)
 
@@ -62,17 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedCell = selectedShip[1]
         selectedShip = selectedShip[0]
 
-        console.log(shipsArray[selectedShip])
-        console.log(selectedCell)
+        console.log(shipsArray[selectedShip], "ship")
+        console.log(selectedCell, "selectedCell")
     }))
-    // ships.forEach(ship => ship.addEventListener("click", e => console.log("selectedShipIndex")))
-    // carrier.addEventListener("dragend", e => {console.log(selectedShipIndex)})
+    
+    ships.forEach(ship => ship.addEventListener("dragstart", e => {
+        shipLength = (e.target.childNodes.length - 1) / 2
 
-    const drop = (e) => {
-        e.preventDefault()
-        console.log(selectedShipIndex)
-    }
+        console.log(shipLength, "shipLength")
+    }))
+    
+    // allCells.forEach(ship => ship.addEventListener("dragover", () => console.log('over')))
 
+    // allCells.forEach(ship => ship.addEventListener("drop", drop))
     
 })
 
