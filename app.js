@@ -23,12 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ];
-    
-    const place = (y, x) => {
-        board[y][x] = 1;
-        console.table(board);
-        renderBoard()
-    };
 
     const dragOver = (e) => {
         e.preventDefault()
@@ -37,10 +31,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const drop = (e) => {
         e.preventDefault()
 
-        const droppedCoordinates = e.target.id
-        console.log(droppedCoordinates, 'dropped')
+        const cellsToEnd = shipLength - selectedCell
+        const droppedCoordinates = e.target.id.split(",")
+        const y = parseInt(droppedCoordinates[0])
+        const x = parseInt(droppedCoordinates[1])
+        console.log(y, x)
 
-        renderBoard()
+        board[y][x] = selectedShip
+
+        if(isVertical){
+            for(let i = 1; i <= selectedCell; i++){
+                board[y - i][x] = selectedShip
+            }
+
+            for(let i = 1; i < cellsToEnd; i++){
+                board[y + i][x] = selectedShip
+            }
+            
+        } else {
+            for(let i = 1; i <= selectedCell; i++){
+                board[y][x - i] = selectedShip
+            }
+
+            for(let i = 1; i < cellsToEnd; i++){
+                board[y][x + i] = selectedShip
+            }
+
+        }
+        
+
+        console.table(board)
+        // renderBoard()
     }
     
     const renderBoard = () => {
@@ -50,13 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 cell.addEventListener("dragover", dragOver)
                 cell.addEventListener("drop", drop)
                 cell.className = shipsArray[col]
-                cell.id = `${y}, ${x}`
+                cell.id = `${y},${x}`
                 gameBoardContainer.appendChild(cell)
             });
         });
     };
-
-    const allCells = document.querySelectorAll('.cell')
 
     const rotate = () => {
         carrier.classList.toggle('carrier-horizontal')
@@ -79,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     shipCells.forEach(ship => ship.addEventListener("mousedown", e => {
         selectedShip = e.target.id.split("-")
-        selectedCell = selectedShip[1]
-        selectedShip = selectedShip[0]
+        selectedCell = parseInt(selectedShip[1])
+        selectedShip = parseInt(selectedShip[0])
 
         console.log(shipsArray[selectedShip], "ship")
         console.log(selectedCell, "selectedCell")
