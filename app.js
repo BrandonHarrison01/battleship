@@ -1,3 +1,7 @@
+// Horizontal ships aren't removed from ships container
+// switch case uses ship names without orientation, stylesheet uses ship names - horizontal
+//	add ship names to css class somehow or create a case for a horizontal orientation
+
 document.addEventListener("DOMContentLoaded", () => {
 	const gameBoardContainer = document.querySelector(".game-board");
 	const shipCells = document.querySelectorAll(".ship-cell");
@@ -104,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		console.table(board);
-		// renderBoard()
 	};
 
 	const renderBoard = () => {
@@ -156,8 +159,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			console.log(shipLength, "shipLength");
 		})
 	);
-
-	// allCells.forEach(ship => ship.addEventListener("dragover", () => console.log('over')))
-
-	// allCells.forEach(ship => ship.addEventListener("drop", drop))
 });
